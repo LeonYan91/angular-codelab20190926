@@ -1,0 +1,84 @@
+<div [@routerTransition] content="main-section">
+  <app-page-header [heading]="'站点管理'" [icon]="'fa-table'"></app-page-header>
+
+  <div content="main-content container">
+    <div class="query-section row breadcrumb mx-xl-0">
+      <div class="col-9">
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="siteid-text-input" class="col-4 col-form-label">站点ID</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="siteid-text-input" [(ngModel)]="queryModel.siteid"
+                       name="queryModel.siteid">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="sitename-text-input" class="col-4 col-form-label">站点名称</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="sitename-text-input" [(ngModel)]="queryModel.sitename"
+                       name="queryModel.sitename" validationMsg maxlength="50">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="state-text-input" class="col-4 col-form-label">站点状态</label>
+              <div class="col-8">
+                <select id="state-text-input" [(ngModel)]="queryModel.state" name="queryModel.state"
+                        class="form-control">
+                  <option value="">请选择</option>
+                  <option value="正常">正常</option>
+                  <option value="锁定">锁定</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="row">
+              <label for="province-select-input" class="col-4 col-form-label">省</label>
+              <div class="col-8">
+                <select id="province-select-input" [(ngModel)]="queryModel.province" name="queryModel.province"
+                        class="form-control"
+                        (ngModelChange)="citys = cityService.getCity(queryModel.province);queryModel.city='';areas=[];queryModel.district=''">
+                  <option value="">请选择</option>
+                  <option [ngValue]="item.name" *ngFor="let item of cityService.getProvince()">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="city-select-input" class="col-4 col-form-label">市</label>
+              <div class="col-8">
+                <select id="city-select-input" [(ngModel)]="queryModel.city" name="queryModel.city"
+                        class="form-control">
+                  <option value="">请选择</option>
+                  <option [value]="item.name" *ngFor="let item of citys">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="row">
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="refreshGrid()">查询</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="clear()">清空</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-datagrid [config]="config"></app-datagrid>
+  </div>
+</div>

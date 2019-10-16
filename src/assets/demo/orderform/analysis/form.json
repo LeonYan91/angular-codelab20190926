@@ -1,0 +1,32 @@
+{
+  "code": "00",
+  "message": "this is an error!!!",
+  "pageData": [
+    {
+      "time": "2017-01-01",
+      "objectname": "订单量统计页面测试数据",
+      "analyseData": [
+        1
+      ]
+    },
+    {
+      "time": "2017-02-01",
+      "objectname": "充电量统计页面测试数据",
+      "analyseData": [
+        2
+      ]
+    },
+    {
+      "time": "2017-03-01",
+      "objectname": "收支统计测试数据",
+      "analyseData": [
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "currentPage": 1,
+  "totalPage": 2,
+  "totalElements": 1
+}

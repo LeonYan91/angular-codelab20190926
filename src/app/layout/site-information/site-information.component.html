@@ -1,0 +1,319 @@
+<div [@routerTransition] content="main-section">
+  <app-page-header [heading]="'站点管理'" [icon]="'fa-table'"></app-page-header>
+
+  <div content="main-content container">
+
+    <div class="query-section row breadcrumb mx-xl-0">
+      <div class="col-9">
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="operatorid-text-input" class="col-4 col-form-label">运营商ID</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="operatorid-text-input" [(ngModel)]="Operator.operatorid"
+                       name="Operator.operatorid" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="operatorname-text-input" class="col-4 col-form-label">运营商名称</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="operatorname-text-input" [(ngModel)]="Operator.operatorname"
+                       name="Operator.operatorname" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="state-text-input2" class="col-4 col-form-label">锁定状态</label>
+              <div class="col-8">
+                <select id="state-text-input2" [(ngModel)]="Operator.state" name="Operator.state" class="form-control"
+                        disabled>
+                  <option value="正常">正常</option>
+                  <option value="锁定">锁定</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="row">
+              <label for="contactor-text-input" class="col-4 col-form-label">联系人</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="contactor-text-input" [(ngModel)]="Operator.contactor"
+                       name="Operator.contactor" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="phone-text-input" class="col-4 col-form-label">手机号</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="phone-text-input" [(ngModel)]="Operator.phone"
+                       name="Operator.phone" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="remark-text-input" class="col-4 col-form-label">备注信息</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="remark-text-input" [(ngModel)]="Operator.remark"
+                       name="Operator.remark" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ngb-tabset [destroyOnHide]="false" (tabChange)="beforeChange($event)">
+      <ngb-tab title="站点管理" id="siteManagement">
+        <ng-template ngbTabContent>
+          <div class="query-section row breadcrumb mx-xl-0">
+            <div class="col-9">
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="row">
+                    <label for="siteid-text-input" class="col-4 col-form-label">站点ID</label>
+                    <div class="col-8">
+                      <input class="form-control" type="text" id="siteid-text-input" [(ngModel)]="queryModel.siteid"
+                             name="queryModel.siteid">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="sitename-text-input" class="col-4 col-form-label">站点名称</label>
+                    <div class="col-8">
+                      <input class="form-control" type="text" id="sitename-text-input" [(ngModel)]="queryModel.sitename"
+                             name="queryModel.sitename">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="state-text-input" class="col-4 col-form-label">站点状态</label>
+                    <div class="col-8">
+                      <select id="state-text-input" [(ngModel)]="queryModel.state" name="queryModel.state"
+                              class="form-control">
+                        <option value="">请选择</option>
+                        <option value="正常">正常</option>
+                        <option value="锁定">锁定</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  <div class="row">
+                    <label for="province-select-input" class="col-4 col-form-label">省</label>
+                    <div class="col-8">
+                      <select id="province-select-input" [(ngModel)]="queryModel.province" name="queryModel.province"
+                              class="form-control"
+                              (ngModelChange)="citys = cityService.getCity(queryModel.province);queryModel.city='';areas=[];queryModel.district=''">
+                        <option value="">请选择</option>
+                        <option [ngValue]="item.name"
+                                *ngFor="let item of cityService.getProvince()">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="city-select-input" class="col-4 col-form-label">市</label>
+                    <div class="col-8">
+                      <select id="city-select-input" [(ngModel)]="queryModel.city" name="queryModel.city"
+                              class="form-control"
+                              (ngModelChange)="areas = cityService.getArea(queryModel.city);queryModel.district=''">
+                        <option value="">请选择</option>
+                        <option [value]="item.name" *ngFor="let item of citys">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="district-select-input" class="col-4 col-form-label">区</label>
+                    <div class="col-8">
+                      <select id="district-select-input" [(ngModel)]="queryModel.district" name="queryModel.district"
+                              class="form-control">
+                        <option value="">请选择</option>
+                        <option [ngValue]="item.name" *ngFor="let item of areas">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" (click)="refreshGridSiteM()">查询</button>
+                </div>
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" (click)="clear()">清空</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <app-datagrid #siteM [config]="siteMConfig"></app-datagrid>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="计费规则管理" id="chargingRule">
+        <ng-template ngbTabContent>
+          <div class="query-section row breadcrumb mx-xl-0">
+            <div class="col-9">
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="row">
+                    <label for="rulename-text-input" class="col-4 col-form-label">计费规则名称</label>
+                    <div class="col-8">
+                      <input class="form-control" type="text" id="rulename-text-input" [(ngModel)]="queryModel.rulename"
+                             name="queryModel.rulename">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="version-text-input" class="col-4 col-form-label">计费规则版本号</label>
+                    <div class="col-8">
+                      <input class="form-control" type="text" id="version-text-input" [(ngModel)]="queryModel.version"
+                             name="queryModel.version">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="ruletype-select-input" class="col-4 col-form-label">类别</label>
+                    <div class="col-8">
+                      <select [(ngModel)]="queryModel.ruletype" name="queryModel.ruletype" id="ruletype-select-input"
+                              class="form-control">
+                        <option value="">请选择</option>
+                        <option value="正常">正常</option>
+                        <option value="锁定">锁定</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  <div class="row">
+                    <label for="usersate-select-input" class="col-4 col-form-label">使用标志</label>
+                    <div class="col-8">
+                      <select [(ngModel)]="queryModel.usersate" name="queryModel.usersate" id="usersate-select-input"
+                              class="form-control">
+                        <option value="">请选择</option>
+                        <option value="true">正在使用</option>
+                        <option value="false">未使用</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" (click)="refreshGridCharging()">查询</button>
+                </div>
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" (click)="clear()">清空</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <app-datagrid #charging [config]="chargingRConfig"></app-datagrid>
+          </div>
+
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="文章管理" id="articleManagement">
+        <ng-template ngbTabContent>
+          <div class="query-section row breadcrumb mx-xl-0">
+            <div class="col-9">
+              <div class="row mb-3">
+                <div class="col-4">
+                  <div class="row">
+                    <label for="firsttitle-text-input" class="col-4 col-form-label">一级标题</label>
+                    <div class="col-8">
+                      <select [(ngModel)]="queryModel.firsttitle" name="queryModel.firsttitle"
+                              id="firsttitle-text-input" class="form-control">
+                        <option value="">请选择</option>
+                        <option value="充电站帮助">充电站帮助</option>
+                        <option value="官方联系方式">官方联系方式</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="secondtitle-text-input" class="col-4 col-form-label">二级标题</label>
+                    <div class="col-8">
+                      <input class="form-control" type="text" id="secondtitle-text-input"
+                             [(ngModel)]="queryModel.secondtitle" name="queryModel.secondtitle">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="row">
+                    <label for="isdisplay-select-input" class="col-4 col-form-label">是否显示</label>
+                    <div class="col-8">
+                      <select [(ngModel)]="queryModel.isdisplay" name="queryModel.isdisplay" id="isdisplay-select-input"
+                              class="form-control">
+                        <option value="">请选择</option>
+                        <option value="true">显示</option>
+                        <option value="false">不显示</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  <div class="row">
+                    <label for="articletype-select-input" class="col-4 col-form-label">分类名称</label>
+                    <div class="col-8">
+                      <select [(ngModel)]="queryModel.articletype" name="queryModel.articletype"
+                              id="articletype-select-input" class="form-control">
+                        <option value="">请选择</option>
+                        <option value="about">关于</option>
+                        <option value="help">帮助</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" (click)="refreshGridArticle()">查询</button>
+                </div>
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" (click)="clear()">清空</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <app-datagrid #article [config]="articleMConfig"></app-datagrid>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "pageData": [
+    {
+      "rulename": "周末大酬宾",
+      "version": "1.0",
+      "starttime": "2017.01.01",
+      "endtime": "2017.01.02",
+      "ruletype": "正常",
+      "usersate": "false",
+      "createtime": "2017-01-01 00:00:00",
+      "ruleid": "12580"
+    },
+    {
+      "rulename": "暑期大狂欢",
+      "version": "2.0",
+      "starttime": "2017.06.09",
+      "endtime": "2017.09.10",
+      "ruletype": "锁定",
+      "usersate": "true",
+      "createtime": "2017-05-01",
+      "ruleid": "12306"
+    }
+  ],
+  "currentPage": 1,
+  "totalPages": 2,
+  "totalElements": 1,
+  "message": "this is an error!!!",
+  "code": "00"
+}

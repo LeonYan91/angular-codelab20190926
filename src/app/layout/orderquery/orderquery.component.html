@@ -1,0 +1,122 @@
+<div [@routerTransition] content="main-section">
+  <app-page-header [heading]="'订单查询'" [icon]="'fa-table'"></app-page-header>
+
+  <div content="main-content container">
+    <div class="query-section row breadcrumb mx-xl-0">
+      <div class="col-9">
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.ordernumber" class="col-4 col-form-label">订单编号</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="queryModel.ordernumber" [(ngModel)]="queryModel.ordernumber"
+                       name="queryModel.ordernumber">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.carid" class="col-4 col-form-label">IC卡</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="queryModel.carid" [(ngModel)]="queryModel.carid"
+                       name="queryModel.carid">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.payer" class="col-4 col-form-label">用户名称</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="queryModel.payer" [(ngModel)]="queryModel.payer"
+                       name="queryModelv.payer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="siteid" class="col-4 col-form-label">充电站</label>
+              <div class="col-8">
+                <input id="siteid" [(ngModel)]="queryModel.siteid" name="queryModel.siteid" class="form-control"
+                       type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="pileid" class="col-4 col-form-label">充电桩</label>
+              <div class="col-8">
+                <input id="pileid" [(ngModel)]="queryModel.pileid" class="form-control" name="queryModel.pileid"
+                       type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="gunid" class="col-4 col-form-label">充电枪</label>
+              <div class="col-8">
+                <input id="gunid" [(ngModel)]="queryModel.gunid" class="form-control" name="queryModel.gunid"
+                       type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.starttime" class="col-4 col-form-label">开始时间</label>
+              <div class="col-8">
+                <input class="form-control" type="date" id="queryModel.starttime" [(ngModel)]="queryModel.StartTime"
+                       name="queryModel.starttime">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.finishtime" class="col-4 col-form-label">结束时间</label>
+              <div class="col-8">
+                <input class="form-control" type="date" id="queryModel.finishtime" [(ngModel)]="queryModel.FinishTime"
+                       name="queryModel.finishtime">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="state-input" class="col-4 col-form-label">订单状态</label>
+              <div class="col-8">
+                <select id="state-input" [(ngModel)]="queryModel.orderstate" class="form-control"
+                        name="queryModel.ordrstate">
+                  <option value="">请选择</option>
+                  <option value=true>正常</option>
+                  <option value=false>锁定</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="row">
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="refreshGrid()">查询</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="blankGrid()">清空</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="exportGrid()">导出</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <app-datagrid [config]="config"></app-datagrid>
+
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div [@routerTransition] content="main-section">
+  <app-page-header [heading]="'充电桩程序库'" [icon]="'fa-table'"></app-page-header>
+
+  <div content="main-content container">
+    <div class="query-section row breadcrumb no-gutters">
+      <div class="col-4">
+        <div class="row">
+          <label for="programname" class="col-4 col-form-label">程序名称</label>
+          <div class="col-8">
+            <input class="form-control" type="text" id="programname" [(ngModel)]="queryModel.programname"
+                   name="queryModel.programname" maxlength="50">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3 offset-2">
+        <div class="row">
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="refreshGrid()">查询</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="clear()">清空</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <app-datagrid [config]="config"></app-datagrid>
+  </div>
+</div>

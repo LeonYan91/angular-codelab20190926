@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{actionTitle}}车辆信息</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form name="submitForm" #submitForm="ngForm">
+    <div class="form-group row">
+      <label class="col-2 col-form-label" for="editModel.brandname">品牌名称</label>
+      <div class="col-10">
+        <input [(ngModel)]='editModel.brandname' id="editModel.brandname" name="editModel.brandname"
+               class="form-control" validationMsg maxlength="50">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label" for="editModel.cartyper">车型</label>
+      <div class="col-10">
+        <input [(ngModel)]='editModel.cartyper' id="editModel.cartyper" name="editModel.cartyper" class="form-control"
+               validationMsg maxlength="50">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">关闭</button>
+  <button type="button" class="btn btn-primary btn-submit" (click)="confirm()">确认</button>
+</div>

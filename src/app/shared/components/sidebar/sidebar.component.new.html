@@ -1,0 +1,65 @@
+<div class="nav-side-menu">
+  <div class="brand">智慧充电桩管理</div>
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+  <div class="menu-list">
+
+    <ul id="menu-content" class="menu-content collapse out">
+            <span *ngFor="let menu of sideMenu">
+                <li *ngIf="!(menu.children && menu.children.length > 0)" routerLink="{{menu.routerLink}}">
+                    <a href="#">
+                        <i class="fa fa-dashboard fa-lg"></i> {{menu.name}}
+                    </a>
+                </li>
+
+                <li *ngIf="menu.children && menu.children.length > 0" data-toggle="collapse" class="collapsed"
+                    (click)="menu.isExpand = !menu.isExpand" class="sidebar-parent-menu">
+                    <a><i class="fa fa-gift fa-lg"></i> {{menu.name}}<span class="arrow"></span></a>
+                </li>
+                <ul *ngIf="menu.children && menu.children.length > 0" class="sub-menu collapse" id="products"
+                    [ngbCollapse]="!menu.isExpand">
+                    <li routerLinkActive="active" routerLink="{{subMenu.routerLink}}"
+                        *ngFor="let subMenu of menu.children"><a>{{subMenu.name}}</a></li>
+                </ul>
+            </span>
+      <!--<li>-->
+      <!--<a href="#">-->
+      <!--<i class="fa fa-dashboard fa-lg"></i> Dashboard-->
+      <!--</a>-->
+      <!--</li>-->
+
+
+      <!--<li data-toggle="collapse" data-target="#service" class="collapsed">-->
+      <!--<a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>-->
+      <!--</li>-->
+      <!--<ul class="sub-menu collapse" id="service">-->
+      <!--<li>New Service 1</li>-->
+      <!--<li>New Service 2</li>-->
+      <!--<li>New Service 3</li>-->
+      <!--</ul>-->
+
+
+      <!--<li data-toggle="collapse" data-target="#new" class="collapsed">-->
+      <!--<a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>-->
+      <!--</li>-->
+      <!--<ul class="sub-menu collapse" id="new">-->
+      <!--<li>New New 1</li>-->
+      <!--<li>New New 2</li>-->
+      <!--<li>New New 3</li>-->
+      <!--</ul>-->
+
+
+      <!--<li>-->
+      <!--<a href="#">-->
+      <!--<i class="fa fa-user fa-lg"></i> Profile-->
+      <!--</a>-->
+      <!--</li>-->
+
+      <!--<li>-->
+      <!--<a href="#">-->
+      <!--<i class="fa fa-users fa-lg"></i> Users-->
+      <!--</a>-->
+      <!--</li>-->
+    </ul>
+  </div>
+</div>

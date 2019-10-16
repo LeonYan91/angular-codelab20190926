@@ -1,0 +1,65 @@
+<div [@routerTransition] content="main-section">
+  <app-page-header [heading]="'预约管理'" [icon]="'fa-table'"></app-page-header>
+
+  <div content="main-content container">
+    <div class="query-section row breadcrumb mx-xl-0">
+      <div class="col-9">
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.siteid" class="col-4 col-form-label">充电站</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="queryModel.siteid" [(ngModel)]="queryModel.siteid"
+                       name="queryModel.siteid">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.reserveid" class="col-4 col-form-label">订单编号</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="queryModel.reserveid" [(ngModel)]="queryModel.reserveid"
+                       name="queryModel.reserveid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.startTime" class="col-4 col-form-label">开始时间</label>
+              <div class="col-8">
+                <input class="form-control" type="date" id="queryModel.startTime" [(ngModel)]="queryModel.startTime"
+                       name="queryModel.startTime">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="queryModel.endTime" class="col-4 col-form-label">结束时间</label>
+              <div class="col-8">
+                <input class="form-control" type="date" id="queryModel.endTime" [(ngModel)]="queryModel.endTime"
+                       name="queryModel.endTime">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="refreshGrid()">查询</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="blankinit()">清空</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="exportGrid()">导出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-datagrid [config]="config"></app-datagrid>
+  </div>
+</div>

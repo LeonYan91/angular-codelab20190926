@@ -1,0 +1,183 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{actionTitle}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form name="submitForm" #submitForm="ngForm">
+    <div class="col-12">
+      <div class="row mb-3">
+        <div class="col-4">
+          <div class="row">
+            <label for="sitename-text-input" class="col-4 col-form-label">站点名称</label>
+            <div class="col-8">
+              <input [(ngModel)]='editModel.sitename' id="sitename-text-input" name="editModel.sitename"
+                     class="form-control" validationMsg required maxlength="50">
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <label for="state-select-input" class="col-4 col-form-label">站点状态</label>
+            <div class="col-8">
+              <select [(ngModel)]='editModel.state' id="state-select-input" name="editModel.state" class="form-control"
+                      validationMsg required>
+                <option value="">请选择</option>
+                <option value="正常">正常</option>
+                <option value="锁定">锁定</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <label for="isopen-select-input" class="col-4 col-form-label">是否对外开放</label>
+            <div class="col-8">
+              <select [(ngModel)]='editModel.isopen' id="isopen-select-input" name="editModel.isopen"
+                      class="form-control" validationMsg required>
+                <option value="">请选择</option>
+                <option value="true">是</option>
+                <option value="false">否</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-4">
+          <div class="row">
+            <label for="type-text-input" class="col-4 col-form-label">充电站类型</label>
+            <div class="col-8">
+              <input [(ngModel)]='editModel.type' id="type-text-input" name="editModel.type" class="form-control"
+                     validationMsg required maxlength="50">
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-4">-->
+        <!--<div class="row">-->
+        <!--<label for="isreasonable-select-input" class="col-6 col-form-label">收费是否合理</label>-->
+        <!--<div class="col-6">-->
+        <!--<select [(ngModel)] = 'editModel.isreasonable' id="isreasonable-select-input" name="editModel.isreasonable" class="form-control">-->
+        <!--<option value="Default">请选择</option>-->
+        <!--<option value="true">是</option>-->
+        <!--<option value="false">否</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="col-4">
+          <div class="row">
+            <label for="position-text-input" class="col-4 col-form-label">详细地址</label>
+            <div class="col-8">
+              <input [(ngModel)]='editModel.position' id="position-text-input" name="editModel.position"
+                     class="form-control" validationMsg required maxlength="300">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-4">
+          <div class="row">
+            <label for="pilenumber-text-input" class="col-4 col-form-label">充电桩数量</label>
+            <div class="col-8">
+              <input type="number" [(ngModel)]='editModel.pilenumber' id="pilenumber-text-input"
+                     name="editModel.pilenumber" class="form-control" validationMsg required>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <label for="seatnumber-text-input" class="col-4 col-form-label">车位数量</label>
+            <div class="col-8">
+              <input type="number" [(ngModel)]='editModel.seatnumber' id="seatnumber-text-input"
+                     name="editModel.seatnumber" class="form-control" validationMsg required>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <label for="operatorInformation_operatorid-text-input" class="col-4 col-form-label">运营商ID</label>
+            <div class="col-8">
+              <input [(ngModel)]='editModel.operatorInformation_operatorid'
+                     id="operatorInformation_operatorid-text-input" name="editModel.operatorInformation_operatorid"
+                     class="form-control" validationMsg required maxlength="50">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-4">
+          <div class="row">
+            <label class="col-2 col-form-label">省</label>
+            <div class="col-10">
+              <select id="province-select-input" [(ngModel)]="editModel.province" name="editModel.province"
+                      class="form-control"
+                      (ngModelChange)="citys = cityService.getCity(editModel.province);editModel.city='';areas=[];editModel.district=''">
+                <option value="">请选择</option>
+                <option [ngValue]="item.name" *ngFor="let item of cityService.getProvince()">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <label class="col-2 col-form-label">市</label>
+            <div class="col-10">
+              <select id="city-select-input" [(ngModel)]="editModel.city" name="editModel.city" class="form-control"
+                      (ngModelChange)="areas = cityService.getArea(editModel.city);editModel.district=''">
+                <option value="">请选择</option>
+                <option [value]="item.name" *ngFor="let item of citys">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <label class="col-2 col-form-label">区</label>
+            <div class="col-10">
+              <select id="district-select-input" [(ngModel)]="editModel.district" name="editModel.district"
+                      class="form-control">>
+                <option value="">请选择</option>
+                <option [ngValue]="item.name" *ngFor="let item of areas">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <div class="row">
+            <label class="col-4 col-form-label">是否支持扫描充电</label>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="editModel.isscanning" id="isscanning-text-input1"
+                       value="true" [(ngModel)]='editModel.isscanning' [value]="true">是
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="editModel.isscanning" id="isscanning-text-input2"
+                       value="false" [(ngModel)]='editModel.isscanning' [value]="false">否
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-submit" (click)="confirmChange()">确认修改</button>
+      </div>
+    </div>
+
+  </form>
+
+  <app-datagrid [config]="config"></app-datagrid>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">关闭</button>
+  <button type="button" class="btn btn-primary" (click)="activeModal.dismiss('Cross click')">确认</button>
+</div>

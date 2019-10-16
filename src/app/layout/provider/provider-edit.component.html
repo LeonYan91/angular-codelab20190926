@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{actionTitle}}运营商</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form name="submitform" #submitForm="ngForm">
+    <div class="form-group row" *ngIf="actionTitle == '编辑'">
+      <label class="col-2 col-form-label">厂商ID</label>
+      <div class="col-10">
+        <input type="number" [(ngModel)]='editModel.factoryid' name="editModel.factoryid" class="form-control"
+               validationMsg required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">厂商姓名</label>
+      <div class="col-10">
+        <input [(ngModel)]='editModel.name' name="editModel.name" maxlength="50" class="form-control" validationMsg
+               required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">省</label>
+      <div class="col-10">
+        <select [(ngModel)]='editModel.province' name="editModel.province" class="form-control"
+                (ngModelChange)="citys = cityService.getCity(editModel.province);editModel.city='';areas=[];editModel.district=''"
+                validationMsg required>
+          <option value="">请选择</option>
+          <option [ngValue]="item.name" *ngFor="let item of cityService.getProvince()">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">市</label>
+      <div class="col-10">
+        <select [(ngModel)]='editModel.city' name="editModel.city" class="form-control" validationMsg required>
+          <option value="">请选择</option>
+          <option [value]="item.name" *ngFor="let item of citys">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">厂商地址</label>
+      <div class="col-10">
+        <input [(ngModel)]='editModel.position' name="editModel.position" maxlength="200" x class="form-control"
+               validationMsg required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">联系人</label>
+      <div class="col-10">
+        <input [(ngModel)]='editModel.contactor' name="editModel.contactor" class="form-control" maxlength="20"
+               validationMsg required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">联系人电话</label>
+      <div class="col-10">
+        <input [(ngModel)]='editModel.phone' name="editModel.phone" maxlength="11" minlength="11" class="form-control"
+               validationMsg required>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">关闭</button>
+  <button type="button" class="btn btn-primary btn-submit" (click)="confirm()">确认</button>
+</div>

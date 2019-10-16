@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{actionTitle}}详细信息</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group row">
+    <div class="form-group col-8">
+      <div class="row">
+        <p class="col-4">品牌详细介绍:</p>
+        <p class="col-8">{{editModel.details}}</p>
+      </div>
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" (click)="edit()">编辑</button>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <!--<label for="editModel.image"></label>-->
+      <img style="width: 220px" id="editModel.logpath" name="editModel.logpath" class="" [src]='imgSrc'>
+      <div class="text-center">
+        <!--<button type="button" class="btn btn-primary" (click)="upload()">上传</button>-->
+        <input type="file" ng2FileSelect [uploader]="uploader">
+      </div>
+    </div>
+  </div>
+</div><!--
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">关闭</button>
+    <button type="button" class="btn btn-primary btn-submit" (click)="confirm()">确认</button>
+</div>-->

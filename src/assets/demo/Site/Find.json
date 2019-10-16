@@ -1,0 +1,49 @@
+{
+  "pageData": [
+    {
+      "siteid": "001",
+      "sitename": "中国石油",
+      "province": "四川省",
+      "city": "成都市",
+      "state": "正常",
+      "isreasonable": "不合理",
+      "state": "正常",
+      "isopen": "是",
+      "type": "超大型",
+      "position": "yyyy",
+      "pilenumber": "12",
+      "seatnumber": "9",
+      "operatorInformation_operatorid": "rrrrr",
+      "isscanning": true,
+      "account": "weiwei",
+      "create": "2017.2.2",
+      "ruleid": "444"
+    },
+    {
+      "siteid": "002",
+      "sitename": "中国石化",
+      "province": "四川省",
+      "city": "成都市",
+      "state": "锁定",
+      "isreasonable": "很不合理",
+      "state": "正常",
+      "isopen": "是",
+      "type": "小型",
+      "province": "四川",
+      "city": "成都",
+      "position": "xxxx",
+      "pilenumber": "6",
+      "seatnumber": "6",
+      "operatorInformation_operatorid": "111",
+      "isscanning": false,
+      "account": "weiwei",
+      "create": "2017.2.2",
+      "ruleid": "444"
+    }
+  ],
+  "currentPage": 1,
+  "totalPages": 2,
+  "totalElements": 1,
+  "message": "this is an error",
+  "code": "00"
+}

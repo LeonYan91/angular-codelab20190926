@@ -1,0 +1,112 @@
+<div [@routerTransition] content="main-section">
+  <app-page-header [heading]="'站点数据分析'" [icon]="'fa-table'"></app-page-header>
+
+  <div content="main-content container">
+    <div class="query-section row breadcrumb mx-xl-0">
+      <div class="col-9">
+        <div class="row mb-3">
+          <div class="col-4">
+            <div class="row">
+              <label for="sitename" class="col-4 col-form-label">站点名称</label>
+              <div class="col-8">
+                <input class="form-control" type="text" id="sitename" [(ngModel)]="queryModel.sitename"
+                       name="queryModel.sitename">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="row">
+              <label for="starttime" class="col-4 col-form-label">查询开始时间</label>
+              <div class="col-8">
+                <input class="form-control" type="date" id="starttime" [(ngModel)]="queryModel.starttime"
+                       name="queryModel.starttime">
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row">
+              <label for="endtime" class="col-4 col-form-label">查询截止时间</label>
+              <div class="col-8">
+                <input class="form-control" type="date" id="endtime" [(ngModel)]="queryModel.endtime"
+                       name="queryModel.endtime">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="row">
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="refreshChart()">查询</button>
+          </div>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary" (click)="clear()">重置</button>
+          </div>
+          <div class="col-4">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>导出</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu">
+                <button class="dropdown-item" (click)="exporttimesGrid()">充电次数</button>
+                <button class="dropdown-item" (click)="exportuserGrid()">用户信息</button>
+                <button class="dropdown-item" (click)="exportamountGrid()">充电量</button>
+                <button class="dropdown-item" (click)="exporterrorGrid()">故障数</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <canvas baseChart width="500" height="400" id="chart1"
+                [datasets]="timesChart"
+                [labels]="timesChartLabels"
+                [options]="lineChartOptions"
+                [colors]="timesChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas baseChart width="500" height="400" id="chart2"
+                [datasets]="userChart"
+                [labels]="userChartLabels"
+                [options]="lineChartOptions"
+                [colors]="userChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <canvas baseChart width="500" height="400" id="chart3"
+                [datasets]="amountChart"
+                [labels]="amountChartLabels"
+                [options]="lineChartOptions"
+                [colors]="amountChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas baseChart width="500" height="400" id="chart4"
+                [datasets]="errorChart"
+                [labels]="errorChartLabels"
+                [options]="lineChartOptions"
+                [colors]="errorChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

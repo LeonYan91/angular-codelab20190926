@@ -1,0 +1,14 @@
+{
+  "code": "00",
+  "pageData": [
+    {
+      "operatorid": "1",
+      "operatorname": "1",
+      "state": "1",
+      "phone": "1"
+    }
+  ],
+  "currentPage": 1,
+  "totalPages": 5,
+  "totalElements": 50
+}

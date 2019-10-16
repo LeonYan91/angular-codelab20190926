@@ -1,0 +1,28 @@
+{
+  "code": "00",
+  "pageData": [
+    {
+      "cardid": "1",
+      "owener": "2",
+      "createtime": "3",
+      "balance": "4",
+      "phone": "5",
+      "icstate": "1",
+      "endtime": "7",
+      "ictype": "8"
+    },
+    {
+      "cardid": "1",
+      "owener": "2",
+      "createtime": "3",
+      "balance": "4",
+      "phone": "5",
+      "icstate": "2",
+      "endtime": "7",
+      "ictype": "8"
+    }
+  ],
+  "currentPage": 1,
+  "totalPages": 5,
+  "totalElements": 50
+}

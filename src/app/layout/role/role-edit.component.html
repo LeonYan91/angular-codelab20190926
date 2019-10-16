@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{actionTitle}}角色</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form name="submitForm" #submitForm="ngForm">
+    <div class="form-group row">
+      <label class="col-2 col-form-label" for="rolename">角色名称</label>
+      <div class="col-10">
+        <input type="text" [(ngModel)]='editModel.rolename' name="editModel.rolename" id="rolename" class="form-control"
+               validationMsg required maxlength="32">
+      </div>
+    </div>
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 超级管理员
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> 平台一般用户
+      </label>
+    </div>
+    <div class="form-check form-check-inline ">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> app用户
+      </label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">关闭</button>
+  <button type="button" class="btn btn-primary btn-submit" (click)="confirm()">确认</button>
+</div>
