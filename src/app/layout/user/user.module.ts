@@ -15,7 +15,7 @@ import {UserRecordComponent} from './user-record.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    // FormsModule,
     UserRoutingModule,
     PageHeaderModule,
     WidgetModule,

@@ -10,13 +10,13 @@ import {NgForm} from '@angular/forms';
   templateUrl: './charging-rule-update.component.html'
 })
 export class ChargingRuleUpdateComponent {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   @Input()
   actionTitle: string;
   @Input()
   editModel: any = {};
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(

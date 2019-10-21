@@ -13,7 +13,7 @@ export class ProfileEditpasswordComponent {
   actionTitle: string;
   @Input()
   editModel: any = {};
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   value = '';

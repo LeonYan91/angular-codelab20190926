@@ -11,11 +11,11 @@ import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomH
 })
 export class OrderAnalysisComponent implements OnInit {
 
-  @ViewChild('orderCount')
+  @ViewChild('orderCount', {static: false})
   private orderCountComponent: DatagridComponent;
-  @ViewChild('chargingCount')
+  @ViewChild('chargingCount', {static: false})
   private chargingCountComponent: DatagridComponent;
-  @ViewChild('moneyCount')
+  @ViewChild('moneyCount', {static: false})
   private moneyCountComponent: DatagridComponent;
 
   private formUrl: string = 'orderform/analysis/form';

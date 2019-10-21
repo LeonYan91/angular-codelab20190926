@@ -1,7 +1,7 @@
 import {Component, Input, ViewChild} from '@angular/core';
 import {DatagridComponent} from 'app/shared/components/widget/datagrid/datagrid.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 
 /**
  * Created by mac on 2017/7/27.
@@ -16,10 +16,10 @@ export class UserSelectorComponent {
   @Input()
   multi: boolean = false;
 
-  constructor(public activeModal: NgbActiveModal, private toastStr: ToastsManager) {
+  constructor(public activeModal: NgbActiveModal) {
   }
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {};
@@ -48,10 +48,10 @@ export class UserSelectorComponent {
   confirm() {
     let selectedValue = this.datagridComponent.radioValue;
     if (!selectedValue) {
-      this.toastStr.clearAllToasts();
-      window.setTimeout(() => {
-        this.toastStr.error('请至少勾选一项');
-      });
+      // this.toastStr.clearAllToasts();
+      // window.setTimeout(() => {
+      //   this.toastStr.error('请至少勾选一项');
+      // });
       return;
     }
     this.activeModal.close(selectedValue);

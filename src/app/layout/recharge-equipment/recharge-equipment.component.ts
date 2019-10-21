@@ -14,7 +14,7 @@ import {RechargeEquipmentRecordComponent} from './recharge-equipment-record.comp
 })
 export class RechargeEquipmentComponent implements OnInit {
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {

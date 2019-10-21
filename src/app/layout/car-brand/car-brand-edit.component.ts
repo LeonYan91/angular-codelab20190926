@@ -14,7 +14,7 @@ export class CarBrandEditComponent {
   @Input()
   editModel: any = {};
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(

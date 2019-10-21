@@ -5,7 +5,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SiteModifyInformationComponent} from './ModalPage/site-modify-information.component';
 import {SiteDataComponent} from './ModalPage/site-data.component';
 import {SiteInformationComponent} from './ModalPage/site-information.component';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 import {CityService} from '../../shared/services/city-service/city-service';
 
 
@@ -16,7 +16,7 @@ import {CityService} from '../../shared/services/city-service/city-service';
   animations: [routerTransition()]
 })
 export class SiteManagementComponent implements OnInit {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   queryModel: any = {};
@@ -118,11 +118,11 @@ export class SiteManagementComponent implements OnInit {
 
   constructor(
     private ngbModal: NgbModal,
-    public toastr: ToastsManager,
+    // public toastr: ToastsManager,
     vcr: ViewContainerRef,
     public cityService: CityService
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
+    // this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {

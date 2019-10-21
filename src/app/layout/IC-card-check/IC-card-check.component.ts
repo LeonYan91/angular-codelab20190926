@@ -16,7 +16,7 @@ import {ICCardInfoComponent} from './IC-card-info.component';
 })
 export class ICCardCheckComponent implements OnInit {
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {

@@ -7,7 +7,7 @@ import {DatagridComponent} from '../../../shared/components/widget/datagrid/data
   templateUrl: './alert-information.component.html'
 })
 export class AlertInformationComponent {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   @Input()

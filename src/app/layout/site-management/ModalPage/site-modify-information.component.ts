@@ -20,7 +20,7 @@ export class SiteModifyInformationComponent {
     city: ''
   };
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   citys: any = [];

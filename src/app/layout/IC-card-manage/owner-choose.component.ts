@@ -13,7 +13,7 @@ export class OwnerChooseComponent {
   @Input()
   editModel: any = {};
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   queryModel: any = {};

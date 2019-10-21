@@ -11,15 +11,15 @@ export class OrderQueryDetailComponent implements OnInit {
   displayData: any = {};
 
   ngOnInit(): void {
-    this.activeRoute.paramMap
-      .switchMap((params: ParamMap) =>
-        this.customHttpClient.post('OrderFormDetails/Find', {data: params.get('id')}))
-      .subscribe(result => {
-        if (result.code === '00') {
-          this.displayData = result.data;
-          this.displayData.create = this.displayData.createdate + ' ' + this.displayData.createtime;
-        }
-      });
+    this.activeRoute
+      .params.subscribe((params: ParamMap) =>
+        this.customHttpClient.post('OrderFormDetails/Find', {data: params.get('id')}).subscribe(result => {
+          if (result.code === '00') {
+            this.displayData = result.data;
+            this.displayData.create = this.displayData.createdate + ' ' + this.displayData.createtime;
+          }
+        }))
+      ;
   }
 
 

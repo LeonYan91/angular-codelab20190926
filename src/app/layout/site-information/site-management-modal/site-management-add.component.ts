@@ -23,7 +23,7 @@ export class SiteManagementAddComponent {
   citys: any = [];
   areas: any = [];
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(

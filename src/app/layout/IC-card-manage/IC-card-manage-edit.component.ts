@@ -2,8 +2,6 @@ import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomHttpClient';
-import {OwnerChooseComponent} from './owner-choose.component';
-import {modelGroupProvider} from '@angular/forms/src/directives/ng_model_group';
 import {BusinessSelector} from '../../shared/business-selector/business-selector.service';
 
 @Component({

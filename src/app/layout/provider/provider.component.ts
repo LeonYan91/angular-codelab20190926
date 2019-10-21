@@ -15,7 +15,7 @@ import {CityService} from '../../shared/services/city-service/city-service';
 export class ProviderComponent implements OnInit {
 
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   /*查询对象*/

@@ -14,7 +14,7 @@ import {BusinessToolModule} from '../shared/business-selector/business-tool.modu
 @NgModule({
   imports: [
     CommonModule,
-    NgbDropdownModule.forRoot(),
+    NgbDropdownModule,
     LayoutRoutingModule,
     TranslateModule,
     WidgetModule,
@@ -26,7 +26,10 @@ import {BusinessToolModule} from '../shared/business-selector/business-tool.modu
     HeaderComponent,
     SidebarComponent,
   ],
-  providers: [LoginService]
+  providers: [LoginService],
+  schemas: [
+    {name: 'NO_ERRORS_SCHEMA'}
+  ]
 })
 export class LayoutModule {
 }

@@ -4,7 +4,7 @@ import {DatagridComponent} from '../../shared/components/widget/datagrid/datagri
 import {CarBrandEditComponent} from './car-brand-edit.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CarBrandDetailComponent} from './car-brand-detail.component';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 import {Uploader} from '../../shared/components/widget/uploader/uploader.service';
 
 @Component({
@@ -14,7 +14,7 @@ import {Uploader} from '../../shared/components/widget/uploader/uploader.service
   animations: [routerTransition()]
 })
 export class CarBrandComponent implements OnInit {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   queryModel: any = {};
@@ -100,10 +100,10 @@ export class CarBrandComponent implements OnInit {
 
   constructor(
     private ngbModal: NgbModal,
-    public toastr: ToastsManager,
+    // public toastr: ToastsManager,
     vcr: ViewContainerRef
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
+    // this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {

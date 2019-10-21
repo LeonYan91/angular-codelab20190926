@@ -2,9 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CarBrandIntroComponent} from './car-brand-detail-modal/car-brand-intro.component';
-import {FileUploader} from 'ng2-file-upload';
+// import {FileUploader} from 'ng2-file-upload';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-car-brand-detail',
@@ -12,7 +12,9 @@ import {ToastsManager} from 'ng2-toastr';
 })
 export class CarBrandDetailComponent implements OnInit {
   ngOnInit(): void {
-    this.uploader = new FileUploader({url: 'Picture/Upload', autoUpload: false, allowedFileType: ['image']});
+    this.uploader =
+      // new FileUploader({url: 'Picture/Upload', autoUpload: false, allowedFileType: ['image']});
+      {};
     this.uploader.onAfterAddingFile = (fileItem) => {
       this.imgSrc = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
       fileItem.onBuildForm = form => {
@@ -22,15 +24,18 @@ export class CarBrandDetailComponent implements OnInit {
       fileItem.upload();
     };
     this.uploader.onSuccessItem = (fileItem) => {
-      this.toastr.success('上传成功');
+      // this.toastr.success('上传成功');
     };
     this.uploader.onErrorItem = (fileItem) => {
-      this.toastr.error('上传失败');
+      // this.toastr.error('上传失败');
     };
     this.imgSrc = this.editModel.logpath;
   }
 
-  public uploader: FileUploader;
+  public uploader:
+    // FileUploader
+    any
+  ;
   public imgSrc: SafeUrl;
 
   @Input()
@@ -38,7 +43,9 @@ export class CarBrandDetailComponent implements OnInit {
   @Input()
   editModel: any = {};
 
-  constructor(public activeModal: NgbActiveModal, private ngbModal: NgbModal, private sanitizer: DomSanitizer, public toastr: ToastsManager) {
+  constructor(public activeModal: NgbActiveModal, private ngbModal: NgbModal, private sanitizer: DomSanitizer,
+              // public toastr: ToastsManager
+  ) {
 
   }
 

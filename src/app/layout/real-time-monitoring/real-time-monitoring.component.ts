@@ -1,9 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {OfflineOptions, ControlAnchor, NavigationControlType} from 'angular2-baidu-map';
+// import {OfflineOptions, ControlAnchor, NavigationControlType} from 'angular2-baidu-map';
 import {routerTransition} from '../../router.animations';
 import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomHttpClient';
-import {NgbModal, NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
-import {stringDistance} from 'codelyzer/util/utils';
 
 declare var AMap: any;
 
@@ -25,7 +23,7 @@ export class RealTimeMonitoringComponent implements OnInit, OnDestroy {
   intervalId: any;
   opts: any;
   contents: any;
-  offlineOpts: OfflineOptions;
+  // offlineOpts: OfflineOptions;
 
   ngOnInit() {
     this.customHttpClient.get('map',).subscribe(result => {

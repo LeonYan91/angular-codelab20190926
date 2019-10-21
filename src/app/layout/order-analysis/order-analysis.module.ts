@@ -7,7 +7,7 @@ import {PageHeaderModule} from './../../shared';
 import {FormsModule} from '@angular/forms';
 import {WidgetModule} from '../../shared/components/widget/widget.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ChartsModule} from 'ng2-charts';
+// import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import {ChartsModule} from 'ng2-charts';
     PageHeaderModule,
     WidgetModule,
     NgbModule,
-    ChartsModule,
+    // ChartsModule,
   ],
   declarations: [
     OrderAnalysisComponent,

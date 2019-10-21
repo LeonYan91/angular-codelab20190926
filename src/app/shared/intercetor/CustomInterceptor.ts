@@ -4,8 +4,9 @@
 
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {ToastsManager} from 'ng2-toastr';
+import {Observable} from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
+
 
 /**
  * 第一级的拦截器，所有http请求都会通过
@@ -13,12 +14,12 @@ import {ToastsManager} from 'ng2-toastr';
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor {
 
-  constructor(public toastr: ToastsManager) {
+  constructor(private toastr: ToastrService) {
   }
 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let nextOb = next.handle(req).map(event => {
+    let nextOb = next.handle(req).pipe(event => {
       this.handResponse(event);
       return event;
     });
@@ -27,9 +28,10 @@ export class CustomInterceptor implements HttpInterceptor {
   }
 
   handResponse(response: any) {
+    this.toastr.error("INTERCEPTOR...");
     //错误信息拦截
     if (response.body && response.body.code != '00') {
-      this.toastr.clearAllToasts();
+      this.toastr.clear();
       window.setTimeout(() => {
         this.toastr.error(response.body.message);
       }, 0);
@@ -45,7 +47,7 @@ export class CustomInterceptor implements HttpInterceptor {
         }
         //todo 上传成功
         if (msg) {
-          this.toastr.clearAllToasts();
+          this.toastr.clear();
           window.setTimeout(() => {
             this.toastr.success(msg);
           }, 0);

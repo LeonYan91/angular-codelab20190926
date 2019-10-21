@@ -12,7 +12,7 @@ import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomH
   animations: [routerTransition()]
 })
 export class FactorySettingsComponent implements OnInit {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {

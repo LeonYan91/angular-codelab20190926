@@ -15,7 +15,7 @@ export class DockoperatorEditComponent {
   editModel: any = {
     state: ''
   };
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(public activeModal: NgbActiveModal, private customHttpClient: CustomHttpClient) {

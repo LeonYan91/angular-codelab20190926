@@ -14,7 +14,7 @@ import {Uploader} from '../../shared/components/widget/uploader/uploader.service
   animations: [routerTransition()]
 })
 export class RechargeProgramComponent implements OnInit {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {};

@@ -10,7 +10,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './charging-rule-add.component.html'
 })
 export class ChargingRuleAddComponent {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   @Input()
   actionTitle: string;
@@ -22,7 +22,7 @@ export class ChargingRuleAddComponent {
   @Input()
   operatorname: string;
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(

@@ -16,7 +16,7 @@ export class RechargeEquipmentEditComponent {
     powertype: '',
     interfacetype: ''
   };
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(public activeModal: NgbActiveModal, private customHttpClient: CustomHttpClient) {

@@ -9,7 +9,7 @@ import {DatagridComponent} from '../../../shared/components/widget/datagrid/data
   templateUrl: './charging-rule-edit.component.html'
 })
 export class ChargingRuleEditComponent {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   @Input()

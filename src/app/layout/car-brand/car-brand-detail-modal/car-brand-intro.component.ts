@@ -14,8 +14,6 @@ export class CarBrandIntroComponent {
   @Input()
   editModel: any = {};
 
-  @ViewChild('submitForm')
-  editForm: NgForm;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -24,9 +22,6 @@ export class CarBrandIntroComponent {
   }
 
   confirm() {
-    /*        if (this.editForm.form.invalid) {
-                return;
-            }*/
     this.update(this.editModel);
   }
 

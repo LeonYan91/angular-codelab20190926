@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {routerTransition} from '../../router.animations';
 import {DatagridComponent} from '../../shared/components/widget/datagrid/datagrid.component';
-import {URLSearchParams} from '@angular/http';
+
 
 @Component({
   selector: 'app-tables',
@@ -13,7 +13,7 @@ import {URLSearchParams} from '@angular/http';
 export class OrderManageComponent implements OnInit {
 
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
 

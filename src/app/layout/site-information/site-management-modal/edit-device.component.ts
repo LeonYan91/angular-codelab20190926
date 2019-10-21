@@ -14,7 +14,7 @@ export class EditDeviceComponent {
   @Input()
   editModel: any = {};
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(

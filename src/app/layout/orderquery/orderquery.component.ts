@@ -4,7 +4,6 @@ import {DatagridComponent} from '../../shared/components/widget/datagrid/datagri
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomHttpClient';
 import {Router} from '@angular/router';
-import {URLSearchParams} from '@angular/http';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +13,7 @@ import {URLSearchParams} from '@angular/http';
 })
 export class OrderQueryComponent implements OnInit {
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {

@@ -15,7 +15,7 @@ export class FactorySettingsEditComponent {
   @Input()
   editModel: any = {};
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(public activeModal: NgbActiveModal, private customHttpClient: CustomHttpClient) {

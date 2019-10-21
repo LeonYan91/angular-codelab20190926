@@ -7,7 +7,7 @@ import {DatagridComponent} from '../../../shared/components/widget/datagrid/data
   templateUrl: './transaction-record.component.html'
 })
 export class TransactionRecordComponent {
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
 
   @Input()

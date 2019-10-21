@@ -5,6 +5,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomHttpClient';
 import {UserEditComponent} from './user-edit.component';
 import {UserRecordComponent} from './user-record.component';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-form',
@@ -15,7 +16,7 @@ import {UserRecordComponent} from './user-record.component';
 export class UserComponent implements OnInit {
   name: string = 'name';
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {
@@ -92,13 +93,14 @@ export class UserComponent implements OnInit {
     ]
   };
 
-  constructor(private ngbModal: NgbModal, private customHttpClient: CustomHttpClient) {
+  constructor(private ngbModal: NgbModal, private customHttpClient: CustomHttpClient, private toastr: ToastrService) {
   }
 
   ngOnInit() {
   }
 
   refreshGrid() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
     this.datagridComponent.refreshGrid();
   }
 

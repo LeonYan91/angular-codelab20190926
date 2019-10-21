@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {routerTransition} from '../../router.animations';
 import {DatagridComponent} from '../../shared/components/widget/datagrid/datagrid.component';
 import {NgbModal, NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomHttpClient';
 import {SiteManagementAddComponent} from './site-management-modal/site-management-add.component';
 import {ChargingRuleAddComponent} from './charging-rule-modal/charging-rule-add.component';
@@ -20,11 +20,11 @@ import {CityService} from '../../shared/services/city-service/city-service';
   animations: [routerTransition()],
 })
 export class SiteInformationComponent implements OnInit {
-  @ViewChild('siteM')
+  @ViewChild('siteM', {static: false})
   private siteMComponent: DatagridComponent;
-  @ViewChild('charging')
+  @ViewChild('charging', {static: false})
   private chargingComponent: DatagridComponent;
-  @ViewChild('article')
+  @ViewChild('article', {static: false})
   private articleComponent: DatagridComponent;
 
   queryModel: any = {};
@@ -334,11 +334,11 @@ export class SiteInformationComponent implements OnInit {
   constructor(
     private ngbModal: NgbModal,
     private customHttpClient: CustomHttpClient,
-    public toastr: ToastsManager,
+    // public toastr: ToastsManager,
     vcr: ViewContainerRef,
     public cityService: CityService
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
+    // this.toastr.setRootViewContainerRef(vcr);
   }
 
   confirm() {

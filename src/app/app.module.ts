@@ -8,9 +8,9 @@ import {AppComponent} from './app.component';
 import {AuthGuard} from './shared';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CustomInterceptor} from './shared/intercetor/CustomInterceptor';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ToastModule, ToastOptions} from 'ng2-toastr';
-import {ToastConfig} from './shared/components/toast/toast.config';
+import { ToastrModule } from 'ngx-toastr';
+import {CustomHttpClient} from './shared/services/custom-http-client/CustomHttpClient';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,17 +22,17 @@ import {ToastConfig} from './shared/components/toast/toast.config';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
-    ToastModule.forRoot()
+    ToastrModule.forRoot()
+    // NgbModule
   ],
   providers: [
     AuthGuard,
+    CustomHttpClient,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomInterceptor,
       multi: true,
-    },
-    {provide: ToastOptions, useClass: ToastConfig}
+    }
   ],
   bootstrap: [AppComponent]
 })

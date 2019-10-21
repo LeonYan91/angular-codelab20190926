@@ -14,13 +14,13 @@ import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomH
   animations: [routerTransition()]
 })
 export class OperationRecordComponent {
-  @ViewChild('siteLog')
+  @ViewChild('siteLog', {static: false})
   private siteLogComponent: DatagridComponent;
 
-  @ViewChild('loginOutLog')
+  @ViewChild('loginOutLog', {static: false})
   private loginOutLogComponent: DatagridComponent;
 
-  @ViewChild('rechargeLog')
+  @ViewChild('rechargeLog', {static: false})
   private rechargeLogComponent: DatagridComponent;
 
 

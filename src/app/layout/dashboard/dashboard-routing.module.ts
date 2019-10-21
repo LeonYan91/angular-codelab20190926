@@ -8,7 +8,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  schemas: [
+    {name: 'NO_ERRORS_SCHEMA'}
+  ]
 })
 export class DashboardRoutingModule {
 }

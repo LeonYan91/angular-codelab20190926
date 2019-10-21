@@ -14,7 +14,7 @@ import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomH
 export class DockoperatorComponent implements OnInit {
   name: String = 'name';
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {

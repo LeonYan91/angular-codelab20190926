@@ -14,7 +14,7 @@ import {ConfirmService} from '../../shared/services/confirm-service/confirm.serv
 })
 export class ICCardManageComponent implements OnInit {
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   //查询对象
   queryModel: any = {

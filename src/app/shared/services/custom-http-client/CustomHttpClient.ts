@@ -1,7 +1,8 @@
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHandler, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {Injectable} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
 
 /**
  * Created by thundersoft on 2017/7/24.
@@ -11,7 +12,12 @@ export class CustomHttpClient extends HttpClient {
 
   environment: any = environment;
 
-  post(url: string, body?: any | any, options?): Observable<any> {
+  constructor(handler: HttpHandler, private toastr: ToastrService) {
+    super(handler);
+  }
+
+  post(url: string, body?: any, options?: any): Observable<any> {
+    this.toastr.error("CustomHttpClient...");
     url = this.modifyUrl(url);
     options = this.convertUrlParams(options);
     //TODO 模拟数据post会报404，暂时时候get
@@ -76,7 +82,7 @@ export class CustomHttpClient extends HttpClient {
     return url;
   }
 
-  convertUrlParams(options: any): object {
+  convertUrlParams(options: any): any {
     if (!options || !options.httpParams) {
       return options;
     }

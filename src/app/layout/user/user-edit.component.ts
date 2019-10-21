@@ -20,7 +20,7 @@ export class UserEditComponent {
     lockstate: ''
   };
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
   constructor(public activeModal: NgbActiveModal, private customHttpClient: CustomHttpClient) {

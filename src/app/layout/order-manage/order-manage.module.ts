@@ -7,7 +7,7 @@ import {PageHeaderModule} from './../../shared';
 import {FormsModule} from '@angular/forms';
 import {WidgetModule} from '../../shared/components/widget/widget.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {window} from 'rxjs/operator/window';
+// import {window} from 'rxjs/operator/window';
 
 @NgModule({
   imports: [

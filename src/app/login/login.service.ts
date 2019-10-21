@@ -1,5 +1,5 @@
 import {HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {Response} from '../shared/models/Response';
 import {CustomHttpClient} from '../shared/services/custom-http-client/CustomHttpClient';

@@ -20,7 +20,7 @@ export class ProviderEditComponent {
     province: '',
     city: ''
   };
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
 

@@ -4,7 +4,7 @@ import {DatagridComponent} from '../../../shared/components/widget/datagrid/data
 import {CustomHttpClient} from '../../../shared/services/custom-http-client/CustomHttpClient';
 import {EditDeviceComponent} from './edit-device.component';
 import {ChargingPileInformationComponent} from './charging-pile-information.component';
-import {ToastsManager} from 'ng2-toastr';
+// import {ToastsManager} from 'ng2-toastr';
 import {GunInformationComponent} from './gun-information.component';
 import {NgForm} from '@angular/forms';
 import {CityService} from '../../../shared/services/city-service/city-service';
@@ -27,10 +27,10 @@ export class SiteEssentialInformationComponent implements OnInit {
   citys: any = [];
   areas: any = [];
 
-  @ViewChild('submitForm')
+  @ViewChild('submitForm', {static: false})
   editForm: NgForm;
 
-  @ViewChild(DatagridComponent)
+  @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
   @Input()
   queryModel: any = {};
@@ -133,11 +133,11 @@ export class SiteEssentialInformationComponent implements OnInit {
     public activeModal: NgbActiveModal,
     private ngbModal: NgbModal,
     private customHttpClient: CustomHttpClient,
-    public toastr: ToastsManager,
+    // public toastr: ToastsManager,
     public cityService: CityService,
     vcr: ViewContainerRef
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
+    // this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
