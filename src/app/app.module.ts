@@ -9,7 +9,8 @@ import {AuthGuard} from './shared';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CustomInterceptor} from './shared/intercetor/CustomInterceptor';
 import { ToastrModule } from 'ngx-toastr';
-import {CustomHttpClient} from './shared/services/custom-http-client/CustomHttpClient';
+
+import {SingletonServiceModule} from './shared/services/singletonService.module';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -20,19 +21,12 @@ import {CustomHttpClient} from './shared/services/custom-http-client/CustomHttpC
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
-    // NgbModule
+    ToastrModule.forRoot(),
+    SingletonServiceModule
   ],
   providers: [
-    AuthGuard,
-    CustomHttpClient,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CustomInterceptor,
-      multi: true,
-    }
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

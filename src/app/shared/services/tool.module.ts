@@ -17,21 +17,11 @@ import {CityService} from './city-service/city-service';
   imports: [
     FormsModule,
     CommonModule,
-    HttpClientModule,
     NgbModule
   ],
   exports: [],
   declarations: [ConfirmConfirComponent],
   providers: [
-    CustomHttpClient,
-    ConfirmService,
-    CRUDService,
-    CityService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CustomInterceptor,
-      multi: true,
-    }
   ],
   entryComponents: [ConfirmConfirComponent]
 })

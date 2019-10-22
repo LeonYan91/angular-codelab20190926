@@ -17,7 +17,6 @@ export class CustomHttpClient extends HttpClient {
   }
 
   post(url: string, body?: any, options?: any): Observable<any> {
-    this.toastr.error("CustomHttpClient...");
     url = this.modifyUrl(url);
     options = this.convertUrlParams(options);
     //TODO 模拟数据post会报404，暂时时候get

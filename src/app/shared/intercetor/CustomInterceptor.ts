@@ -20,7 +20,7 @@ export class CustomInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let nextOb = next.handle(req).pipe(event => {
-      this.handResponse(event);
+      event.subscribe(res => this.handResponse(res));
       return event;
     });
 
@@ -28,7 +28,6 @@ export class CustomInterceptor implements HttpInterceptor {
   }
 
   handResponse(response: any) {
-    this.toastr.error("INTERCEPTOR...");
     //错误信息拦截
     if (response.body && response.body.code != '00') {
       this.toastr.clear();
