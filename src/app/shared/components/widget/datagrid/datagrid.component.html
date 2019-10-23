@@ -33,7 +33,7 @@
             <span *ngIf="col.html" [innerHtml]="col.html(data)"></span>
           </td>
           <td *ngIf="config.rowActions && config.rowActions.length > 0">
-            <i class="fa mr-2" [ngClass]="getIcon(rowAct, data)" aria-hidden="true"
+            <i class="fas mr-2" [ngClass]="getIcon(rowAct, data)" aria-hidden="true"
                *ngFor="let rowAct of config.rowActions" (click)="rowAction(rowAct, data)"></i>
           </td>
         </tr>

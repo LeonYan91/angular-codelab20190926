@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LayoutComponent} from './layout.component';
+import {AuthGuard} from '../shared';
 
 const routes: Routes = [
   {
     path: '', component: LayoutComponent,
     children: [
-      {path: 'role', loadChildren: () => import('./role/role.module').then(m => m.RoleModule)},
-      {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule),},
+      {path: 'role', loadChildren: () => import('./role/role.module').then(m => m.RoleModule), canActivate: [AuthGuard]},
+      {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule), canActivate: [AuthGuard]},
 
       // /*基础数据管理*/
       // /*充电桩程序库*/

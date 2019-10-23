@@ -8,7 +8,7 @@ import {CustomHttpClient} from '../../../shared/services/custom-http-client/Cust
   animations: [routerTransition()]
 })
 export class OrderQueryDetailComponent implements OnInit {
-  displayData: any = {};
+  displayData: any = {};j
 
   ngOnInit(): void {
     this.activeRoute

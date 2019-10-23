@@ -43,9 +43,9 @@ export class DatagridComponent implements OnInit {
   fetchedData: any = [];
 
   private rowIcons: object = {
-    'delete': 'fa-trash-o',
-    'edit': 'fa-pencil-square-o',
-    'detail': 'fa-file-o',
+    'delete': 'fa-trash',
+    'edit': 'fa-edit',
+    'detail': 'fa-info-circle',
     'upload': 'fa-upload'
   };
 
