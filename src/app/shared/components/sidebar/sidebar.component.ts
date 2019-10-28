@@ -11,24 +11,24 @@ import {
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.new.html',
   styleUrls: ['./sidebar.component.new.scss'],
-  animations: [
-    trigger('menuCollapse', [
-      state('collapse', style({
-        display: 'none'
-      })),
-      state('expand', style({
-        display: 'block'
-      })),
-      transition('collapse => expand', animate('1000ms ease-in')),
-      transition('expand => collapse', animate('1000ms ease-out'))
-    ])
-  ]
+  // animations: [
+  //   trigger('menuCollapse', [
+  //     state('collapse', style({
+  //       display: 'none'
+  //     })),
+  //     state('expand', style({
+  //       display: 'block'
+  //     })),
+  //     transition('collapse => expand', animate('1000ms ease-in')),
+  //     transition('expand => collapse', animate('1000ms ease-out'))
+  //   ])
+  // ]
 })
 export class SidebarComponent implements OnInit {
   isActive = false;
   showMenu = '';
 
-  sideMenu: any;
+  sideMenu: Array<ParentMenu>;
 
   eventCalled() {
     this.isActive = !this.isActive;
@@ -83,4 +83,16 @@ export class SidebarComponent implements OnInit {
       }
     ];
   }
+}
+
+
+
+class SidebarMenuInfo {
+  name: string;
+  routerLink?: string;
+  isExpand?: boolean;
+}
+
+class ParentMenu extends SidebarMenuInfo{
+  children: Array<SidebarMenuInfo>
 }

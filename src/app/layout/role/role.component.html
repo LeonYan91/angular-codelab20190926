@@ -6,10 +6,21 @@
     <div class="query-section row breadcrumb mx-0">
       <div class="col-3">
         <div class="row">
-          <label for="example-text-input" class="col-4 col-form-label">角色名称</label>
+          <label for="example-text-input" class="col-4 col-form-label">{{'roleMain.query.roleName' | translate}}</label>
           <div class="col-8">
             <input class="form-control" type="text" id="example-text-input" [(ngModel)]="queryModel.rolename"
                    name="queryModel.rolename" maxlength="32">
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <label for="example-text-input" class="col-4 col-form-label">{{'roleMain.query.chooseLang' | translate}}</label>
+          <div class="col-8">
+            <select class="form-control" [(ngModel)]="queryModel.selectedLang" (ngModelChange)="setLang()">
+              <option *ngFor="let lang of queryModel.availableLangs" [value]="lang" [selected]="lang === queryModel.selectedLang">{{lang}}</option>
+            </select>
+
           </div>
         </div>
       </div>

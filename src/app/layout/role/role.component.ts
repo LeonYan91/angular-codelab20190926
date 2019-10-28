@@ -4,6 +4,7 @@ import {DatagridComponent} from '../../shared/components/widget/datagrid/datagri
 import {RoleEditComponent} from './role-edit.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CustomHttpClient} from '../../shared/services/custom-http-client/CustomHttpClient';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tables',
@@ -82,7 +83,15 @@ export class RoleComponent implements OnInit {
     ]
   };
 
-  constructor(private ngbModal: NgbModal, private customHttpClient: CustomHttpClient) {
+  constructor(private ngbModal: NgbModal, private customHttpClient: CustomHttpClient, public translate: TranslateService) {
+    this.queryModel.availableLangs = translate.getLangs();
+    this.queryModel.selectedLang = translate.currentLang;
+
+  }
+
+  setLang(){
+    this.translate.resetLang(this.queryModel.selectedLang)
+    this.translate.use(this.queryModel.selectedLang);
   }
 
   ngOnInit() {

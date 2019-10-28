@@ -1,0 +1,21 @@
+{
+  "Role Name": "角色名称",
+  "Choose Language": "选择语言",
+  "roleMain": {
+    "query": {
+      "roleName": "角色名称1",
+      "chooseLang": "选择语言1"
+    }
+  },
+  "user": {
+    "query": {
+      "id": "用户ID",
+      "name": "用户名"
+    }
+  },
+  "notification": {
+    "addSuccess": "添加成功",
+    "modifySuccess": "修改成功",
+    "delSuccess": "删除成功"
+  }
+}

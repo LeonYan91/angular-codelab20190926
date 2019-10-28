@@ -879,6 +879,13 @@
   dependencies:
     tslib "^1.9.0"
 
+"@ngx-translate/http-loader@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-4.0.0.tgz#8a555248ad4b7d513460fcec9da25b0447962f1d"
+  integrity sha512-x8LumqydWD7eX9yQTAVeoCM9gFUIGVTUjZqbxdAUavAA3qVnk9wCQux7iHLPXpydl8vyQmLoPQR+fFU+DUDOMA==
+  dependencies:
+    tslib "^1.9.0"
+
 "@schematics/angular@8.3.9":
   version "8.3.9"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-8.3.9.tgz#e088ddabc0899543810c010e7b5ccf7849d13d77"

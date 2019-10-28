@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ToastrService} from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
 
 
 /**
@@ -14,12 +15,24 @@ import {ToastrService} from 'ngx-toastr';
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor {
 
-  constructor(private toastr: ToastrService) {
+  notification: {
+    addSuccess?: string,
+    modifySuccess?: string,
+    delSuccess?: string
+  } = {};
+
+  constructor(private toastr: ToastrService, private translate: TranslateService) {
+    this.translate.onLangChange.subscribe(event => {
+      this.notification = event.translations.notification;
+    })
   }
 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let nextOb = next.handle(req).pipe(event => {
+      if(req.url && (req.url.indexOf('/assets/i18n') > -1)){
+        return event;
+      }
       event.subscribe(res => this.handResponse(res));
       return event;
     });
@@ -38,14 +51,15 @@ export class CustomInterceptor implements HttpInterceptor {
       if (response.url) {
         let msg;
         if (response.url.indexOf('Add') != -1) {
-          msg = '添加成功！';
+          msg = this.notification.addSuccess;
         } else if (response.url.indexOf('Update') != -1) {
-          msg = '修改成功！';
+          msg = this.notification.modifySuccess;
         } else if (response.url.indexOf('Delete') != -1) {
-          msg = '删除成功！';
+          msg = this.notification.delSuccess;
         }
         //todo 上传成功
         if (msg) {
+          msg = msg+'!';
           this.toastr.clear();
           window.setTimeout(() => {
             this.toastr.success(msg);

@@ -7,6 +7,9 @@ import {ValidationMsgDirective} from '../validation-msg/validation-msg.directive
 // import {ChartsModule} from 'ng2-charts';
 import {Uploader} from './uploader/uploader.service';
 import {UploaderModalComponent} from './uploader/uploader-modal.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClient, HttpClientModule, HttpXhrBackend} from '@angular/common/http';
 // import {FileUploadModule} from 'ng2-file-upload';
 
 
@@ -14,7 +17,8 @@ import {UploaderModalComponent} from './uploader/uploader-modal.component';
   imports: [
     CommonModule,
     FormsModule,
-    ToolModule
+    ToolModule,
+    HttpClientModule,
     // ChartsModule,
     // FileUploadModule
   ],
@@ -29,7 +33,9 @@ import {UploaderModalComponent} from './uploader/uploader-modal.component';
     ValidationMsgDirective,
     // ChartsModule,
     // FileUploadModule,
-    FormsModule
+    TranslateModule,
+    FormsModule,
+    CommonModule,
   ],
   providers: [Uploader]
 })
