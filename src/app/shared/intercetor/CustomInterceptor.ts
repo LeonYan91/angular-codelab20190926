@@ -30,6 +30,9 @@ export class CustomInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let nextOb = next.handle(req).pipe(event => {
+      //20191028 since httpTranslateModule of ng-translate in root module use HttpClient as deps, as this interceptor is config for the root HttpClient's interceptor,
+      // so the httpTranslateModule will enter this interceptor too.The best practice is to inject another HttpClient instance to httpTranslateModule instead of from
+      // root injector, but now use string pattern to filter request to static resource.
       if(req.url && (req.url.indexOf('/assets/i18n') > -1)){
         return event;
       }
