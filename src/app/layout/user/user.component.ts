@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
 
   @ViewChild(DatagridComponent, {static: false})
   private datagridComponent: DatagridComponent;
+  urlModel: string = 'IcCard/Find';
   //查询对象
   queryModel: any = {
     lockstate: ''

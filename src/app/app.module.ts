@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {SingletonServiceModule} from './shared/services/singletonService.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { DemoComponent } from './demo/demo.component';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -21,7 +22,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,

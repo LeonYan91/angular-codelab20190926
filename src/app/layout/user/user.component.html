@@ -2,6 +2,20 @@
   <app-page-header [heading]="'用户管理'" [icon]="'fa-edit'"></app-page-header>
 
   <div content="main-content container">
+    <div>
+      <div>
+        appFetch
+      </div>
+      <div>
+        <select [(ngModel)]="urlModel">
+          <option *ngFor="let i of ['IcCard/Find', 'ManageUser/Find']" [value]="i">{{i}}</option>
+        </select>
+      </div>
+      <div>
+        {{urlModel | appFetch | json}}
+      </div>
+
+    </div>
     <div class="query-section row breadcrumb mx-xl-0">
       <div class="col-9">
         <div class="row mb-3">

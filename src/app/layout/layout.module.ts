@@ -10,6 +10,7 @@ import {WidgetModule} from '../shared/components/widget/widget.module';
 import {LoginService} from '../login/login.service';
 import {FormsModule} from '@angular/forms';
 import {BusinessToolModule} from '../shared/business-selector/business-tool.module';
+import { ComTestComponent } from './com-test/com-test.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {BusinessToolModule} from '../shared/business-selector/business-tool.modu
     LayoutComponent,
     HeaderComponent,
     SidebarComponent,
+    ComTestComponent,
   ],
   providers: [LoginService],
   schemas: [

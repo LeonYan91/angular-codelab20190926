@@ -10,6 +10,7 @@ import {UploaderModalComponent} from './uploader/uploader-modal.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClient, HttpClientModule, HttpXhrBackend} from '@angular/common/http';
+import {SharedPipesModule} from '../..';
 // import {FileUploadModule} from 'ng2-file-upload';
 
 
@@ -36,6 +37,7 @@ import {HttpClient, HttpClientModule, HttpXhrBackend} from '@angular/common/http
     TranslateModule,
     FormsModule,
     CommonModule,
+    SharedPipesModule
   ],
   providers: [Uploader]
 })
